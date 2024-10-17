@@ -1,0 +1,10 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -Iinclude
+
+all: bruteforce
+
+bruteforce: src/bruteforce.c
+	$(CC) $(CFLAGS) -o bruteforce src/bruteforce.c
+
+clean:
+	rm -f bruteforce
