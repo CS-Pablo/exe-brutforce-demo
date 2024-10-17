@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   brutforce.c                                        :+:      :+:    :+:   */
+/*   bruteforce.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csauron <csauron@students.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 07:25:33 by csauron           #+#    #+#             */
-/*   Updated: 2024/10/17 07:26:35 by csauron          ###   ########.fr       */
+/*   Updated: 2024/10/17 07:44:54 by csauron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void brute_force(char *attempt, int position, int length, const char *target_pas
         return;
     }
 
-    for (int i = 0; i < strlen(CHARSET); i++) {
+    // Utilisation de size_t pour éviter l'avertissement lié à la comparaison entre types signés et non signés
+    for (size_t i = 0; i < strlen(CHARSET); i++) {
         attempt[position] = CHARSET[i];
         brute_force(attempt, position + 1, length, target_password);
     }
